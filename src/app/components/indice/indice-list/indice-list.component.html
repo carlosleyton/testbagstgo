@@ -1,0 +1,35 @@
+<h1>Indices Bolsa de Santiago</h1>
+<h2>{{ fecha | date: "dd/MM/yyyy" }}</h2>
+<table class="table table-striped table-responsive table-hover">
+  <thead>
+    <tr>
+      <th *ngFor="let nombre of columnas" scope="col">{{ nombre }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let indice of indices">
+      <td>{{ indice.Nombre }}</td>
+      <td>{{ indice.Menor }}</td>
+      <td>{{ indice.Valor }}</td>
+      <td>{{ indice.Mayor }}</td>
+      <td>{{ indice.Medio }}</td>
+      <td>{{ indice.Variacion }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="indicesGrafico.length > 0">
+  <ngx-charts-bar-horizontal-2d
+    [view]="opcionesGrafico.view"
+    [scheme]="opcionesGrafico.colorScheme"
+    [schemeType]="opcionesGrafico.schemeType"
+    [results]="indicesGrafico"
+    [gradient]="opcionesGrafico.gradient"
+    [xAxis]="opcionesGrafico.showXAxis"
+    [yAxis]="opcionesGrafico.showYAxis"
+    [legend]="opcionesGrafico.showLegend"
+    [legendPosition]="opcionesGrafico.legendPosition"
+    [showXAxisLabel]="opcionesGrafico.showXAxisLabel"
+    [showYAxisLabel]="opcionesGrafico.showYAxisLabel"
+  >
+  </ngx-charts-bar-horizontal-2d>
+</div>
