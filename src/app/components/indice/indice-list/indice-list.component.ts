@@ -61,48 +61,8 @@ export class IndiceListComponent implements OnInit {
       }
     );
   }
-  getIndicesDemo() {
-    this.indices = [
-      {
-        Nombre: 'SPCLXIGPA',
-        Valor: 25085.59,
-        Mayor: 25128.15,
-        Menor: 24464.776182064,
-        Medio: 0,
-        Variacion: 2.54,
-      },
-      {
-        Nombre: 'SP IPSA',
-        Valor: 4887.57,
-        Mayor: 4899.39,
-        Menor: 4785.63,
-        Medio: 0,
-        Variacion: 2.13,
-      },
-      {
-        Nombre: 'SPCLXIN10',
-        Valor: 7296.89,
-        Mayor: 7310.15,
-        Menor: 7023.29882115,
-        Medio: 0,
-        Variacion: 3.9,
-      },
-    ];
-    this.indices.forEach((indice: Indice) => {
-      let registro = {
-        name: indice.Nombre,
-        series: [
-          { name: 'Menor', value: indice.Menor },
-          { name: 'Valor', value: indice.Valor },
-          { name: 'Mayor', value: indice.Mayor },
-        ],
-      };
-      this.indicesGrafico.push(registro);
-    });
-    console.log(this.indicesGrafico);
-  }
+
   ngOnInit(): void {
     this.getIndices();
-    //this.getIndicesDemo();
   }
 }
